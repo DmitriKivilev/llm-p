@@ -16,8 +16,7 @@ class User(Base):
     role: Mapped[str] = mapped_column(String(50), default="user")
     created_at: Mapped[datetime] = mapped_column(default=datetime.utcnow)
 
-    messages: Mapped[list["ChatMessage"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-
+    messages: Mapped[list["ChatMessage"]] = relationship(back_populates="user")
 
 class ChatMessage(Base):
     __tablename__ = "chat_messages"

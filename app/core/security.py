@@ -1,5 +1,3 @@
-# app/core/security.py
-
 from datetime import datetime, timedelta, timezone
 from jose import jwt
 from passlib.context import CryptContext
@@ -21,7 +19,7 @@ def get_password_hash(password: str) -> str:
 
 def create_access_token(data: dict) -> str:
     """
-    Генерация JWT access token.
+    Генерация токена.
     """
 
     to_encode = data.copy()

@@ -35,7 +35,7 @@ async def login(
     except UnauthorizedError as e:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=str(e),
+            detail="login failed",
             headers={"WWW-Authenticate": "Bearer"},
         )
 

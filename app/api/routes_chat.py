@@ -1,5 +1,3 @@
-# app/api/routes_chat.py
-
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.api.deps import get_current_user_id, get_chat_usecase
@@ -34,7 +32,6 @@ async def get_history(
     user_id: int = Depends(get_current_user_id),
     usecase: ChatUseCase = Depends(get_chat_usecase),
 ):
-    """Получить историю диалога текущего пользователя."""
     messages = await usecase.get_history(user_id, limit)
     return [
         {
@@ -51,5 +48,4 @@ async def clear_history(
     user_id: int = Depends(get_current_user_id),
     usecase: ChatUseCase = Depends(get_chat_usecase),
 ):
-    """Очистить историю диалога текущего пользователя."""
     await usecase.clear_history(user_id)
